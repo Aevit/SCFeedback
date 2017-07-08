@@ -7,9 +7,7 @@ In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/)
 
 
 ## Demo
-<video src="http://aevit.qiniudn.com/scfeedback_demo.mp4" width="375" height="668" controls="controls">
-您的浏览器不支持 video 标签。
-</video>
+[Demo Video](http://aevit.qiniudn.com/scfeedback_demo.mp4)
 
 [or download the video (1.7MB)](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/demo.mp4)
 

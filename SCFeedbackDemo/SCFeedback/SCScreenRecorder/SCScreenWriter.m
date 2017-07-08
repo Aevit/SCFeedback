@@ -107,8 +107,10 @@
         // writer
         NSError *error = nil;
         _writer = [[AVAssetWriter alloc] initWithURL:self.owner.outputURL fileType:AVFileTypeQuickTimeMovie error:&error];
+#ifdef DEBUG
         NSString *errMsg = [NSString stringWithFormat:@"SCFeedback: %@", error.debugDescription];
         NSAssert(error == nil, errMsg);
+#endif
         
         // input
         [_writer addInput:self.writerInput];

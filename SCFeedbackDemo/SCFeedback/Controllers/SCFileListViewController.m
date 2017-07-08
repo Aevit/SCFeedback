@@ -28,10 +28,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.filesArr = [NSMutableArray arrayWithArray:[[SCFbUtils file_getAllFilesInPath:[SCFbUtils file_scrcd_default_folder]] reverseObjectEnumerator].allObjects];
+    
+    if (!self.fileFolder || [self.fileFolder isEqual:[NSNull null]] || self.fileFolder.length <= 0) {
+        self.fileFolder = [SCFbUtils file_scrcd_default_folder];
+    }
+    self.filesArr = [NSMutableArray arrayWithArray:[[SCFbUtils file_getAllFilesInPath:self.fileFolder] reverseObjectEnumerator].allObjects];
     [self.view addSubview:self.tableView];
     
     self.navigationItem.title = @"Files";
+    
+    [self setupCloseBtn];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"edit" style:UIBarButtonItemStylePlain target:self action:@selector(editBtnPressed:)];
     self.navigationItem.rightBarButtonItem = rightItem;
@@ -46,6 +52,18 @@
     if ([SCFeedbackManager sharedManager].audioManager.player.isPlaying) {
         [[SCFeedbackManager sharedManager].audioManager stopPlay];
     }
+}
+
+#pragma mark - views
+- (void)setupCloseBtn {
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
+    self.navigationItem.leftBarButtonItem = item;
+}
+
+#pragma mark - actions
+- (void)closeBtnPressed:(id)sender {
+    UIViewController *con = self.navigationController ? self.navigationController : self;
+    [con dismissViewControllerAnimated:YES completion:^{}];
 }
 
 #pragma mark - tableview

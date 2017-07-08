@@ -217,4 +217,12 @@ extern NSString *const scInfo_shake_cancel; // cancel button text of alert after
  */
 - (void)cleanSavedData;
 
+#pragma mark - ----- file
+/**
+ show the video saved in the sanbox
+
+ @param folder the files in the folder will be shown, if it is nil or empty, will find the default folder
+ */
+- (void)showFileListWithFolder:(NSString*)folder;
+
 @end

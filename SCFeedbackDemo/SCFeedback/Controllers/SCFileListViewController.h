@@ -10,4 +10,6 @@
 
 @interface SCFileListViewController : UIViewController
 
+@property (nonatomic, copy) NSString *fileFolder;
+
 @end

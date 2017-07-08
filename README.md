@@ -7,7 +7,11 @@ In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/)
 
 
 ## Demo
-[Look at this video](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/demo.mp4)
+<video src="http://aevit.qiniudn.com/scfeedback_demo.mp4" width="375" height="668" controls="controls">
+您的浏览器不支持 video 标签。
+</video>
+
+[or download the video (1.7MB)](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/demo.mp4)
 
 
 ## Requirements
@@ -51,13 +55,25 @@ In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/)
 }];
 ```
 
+
 > you could add the code above where you want, such as in `AppDelegate.m` or your custom file.  
+
+
+`SCFbMediaInfo` is a `ClassCluster`, you can get the image or video url like this:  
+
+```
+// SCFbMediaInfo *info = dataArray[0];
+
+UIImage *image = [info image];
+
+NSURL *fileUrl = [info videoFileUrl];
+```
 
 * shake your device to use
 
 ### Customize
 
-You can customize something with the properties and apis in the file `SCFeedbackManager.h` ---- just scroll down the file and you will see something more :)  
+You can customize something with the properties and apis in the file [`SCFeedbackManager.h`](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCFeedbackManager.h) ---- just scroll down the file and you will see something more :)  
 
 #### show the edit info controller
 You can show the edit info controller without nothing:  
@@ -78,7 +94,7 @@ When you shake your device, will show a alert, if you want to disable the alert,
 ##### video
 You can do something customize (set the frameRate of the video, set the outputURL of the video and so on) with the properties and apis of `[SCFeedbackManager sharedManager].screenRecorder`:  
 
-[SCScreenRecorder.h](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/SCFeedbackDemo/SCFeedback/SCScreenRecorder/SCScreenRecorder.h)
+[SCScreenRecorder.h](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCScreenRecorder/SCScreenRecorder.h)
 
 There is a protocol to get the video file url and cover image when finish recording video:  
 
@@ -95,7 +111,7 @@ There is a protocol to get the video file url and cover image when finish record
 
 You can do something customize with the properties and apis of `[SCFeedbackManager sharedManager].audioManager`:  
 
-[SCAudioManager.h](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/SCFeedbackDemo/SCFeedback/SCAudioManager/SCAudioManager.h)
+[SCAudioManager.h](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCAudioManager/SCAudioManager.h)
 
 
 #### capture screeen
@@ -153,6 +169,22 @@ You can show or hide the overlay button at bottom-right corner like this:
 
 // hide
 [[SCFeedbackManager sharedManager] hideOverlayBtn];
+```
+
+#### default video path
+The default path is `'Library/Caches/scrcd_{yyyyMMdd_HHmmss}.mp4'`, you can change the path with the property:   
+`[[SCFeedbackManager sharedManager].screenRecorder.outputURL`.  
+
+
+You can use the api of `[SCFeedbackManager sharedManager]` to show all the video and audio files:  
+
+```
+/**
+ show the video saved in the sanbox
+
+ @param folder the files in the folder will be shown, if it is nil or empty, will find the default folder
+ */
+- (void)showFileListWithFolder:(NSString*)folder;
 ```
 
 

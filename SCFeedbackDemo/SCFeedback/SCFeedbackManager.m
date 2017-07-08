@@ -12,6 +12,7 @@
 #import "SCFbUtils+VCAndView.h"
 #import "UIViewController+scfb_shake.h"
 #import "SCFbNavigationController.h"
+#import "SCFileListViewController.h"
 
 NSString *const scInfo_drawer_title = @"scInfo_drawer_title"; // SCEditInfoViewController's title
 
@@ -193,6 +194,14 @@ static NSSet *_noShowAlertPages = nil;
     [self.infosArr removeAllObjects];
     self.infosArr = nil;
     self.feedbackContent = nil;
+}
+
+#pragma mark - ----- file
+- (void)showFileListWithFolder:(NSString *)folder {
+    SCFileListViewController *con = [[SCFileListViewController alloc] init];
+    con.fileFolder = folder;
+    SCFbNavigationController *nav = [[SCFbNavigationController alloc] initWithRootViewController:con];
+    [[SCFbUtils vc_getTopViewController] presentViewController:nav animated:YES completion:nil];
 }
 
 #pragma mark - private methods

@@ -170,7 +170,7 @@ static NSString *cellInfoKeySel = @"cellInfoKeySel";
                          @{cellInfoKeyTitle: @"resume record audio", cellInfoKeySel: @"resumeRecordAudio:"},
                          
                          @{cellInfoKeyTitle: @"", cellInfoKeySel: @""},
-                         @{cellInfoKeyTitle: @"go to files list", cellInfoKeySel: @"gotoFilesListController:"},
+                         @{cellInfoKeyTitle: @"show files list", cellInfoKeySel: @"gotoFilesListController:"},
                          @{cellInfoKeyTitle: @"delete ./Library/Caches/scrcd", cellInfoKeySel: @"deleteAllFiles:"},
                          @{cellInfoKeyTitle: @"delete images in '/scrcd'", cellInfoKeySel: @"deleteAllImage:"},
                          
@@ -300,8 +300,9 @@ static NSString *cellInfoKeySel = @"cellInfoKeySel";
 
 #pragma mark - file
 - (void)gotoFilesListController:(NSIndexPath*)indexPath {
-    SCFileListViewController *con = [[SCFileListViewController alloc] init];
-    [self.navigationController pushViewController:con animated:YES];
+    [[SCFeedbackManager sharedManager] showFileListWithFolder:nil];
+//    SCFileListViewController *con = [[SCFileListViewController alloc] init];
+//    [self.navigationController pushViewController:con animated:YES];
 }
 
 - (void)deleteAllImage:(NSIndexPath*)indexPath {

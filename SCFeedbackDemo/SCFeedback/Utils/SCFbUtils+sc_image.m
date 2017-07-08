@@ -72,4 +72,13 @@
     return theImage;
 }
 
+
++ (UIImage *)img_imageWithName:(NSString*)name {
+    if (!name || [name isEqual:[NSNull null]] || name.length <= 0) {
+        return nil;
+    }
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"___SCFeedback" ofType:@"bundle"];
+    return [UIImage imageWithContentsOfFile:[bundlePath stringByAppendingPathComponent:name]];
+}
+
 @end

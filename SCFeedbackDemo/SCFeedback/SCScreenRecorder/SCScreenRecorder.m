@@ -13,6 +13,7 @@
 #import "SCFbUtils+sc_file.h"
 #import "SCAudioManager.h"
 #import "SCFbUtils.h"
+#import "SCFbUtils+sc_image.h"
 #import "SCFeedbackManager.h"
 
 NSString *const kNotificationDidReachMaxTime_scfb = @"kNotificationDidReachMaxTime_scfb";

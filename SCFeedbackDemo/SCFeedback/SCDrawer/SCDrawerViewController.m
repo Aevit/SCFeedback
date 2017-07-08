@@ -176,11 +176,11 @@ static CGFloat const kMaxMosaicSize = 50.0;
                 [self addHookImgViewIn:btn];
             } else if (i == btnCount - 2) {
                 // masaic
-                [btn setImage:[UIImage imageNamed:@"sc_mosaic_unselected.png"] forState:UIControlStateNormal];
-                [btn setImage:[UIImage imageNamed:@"sc_mosaic_selected.png"] forState:UIControlStateSelected];
+                [btn setImage:[SCFbUtils img_imageWithName:@"sc_mosaic_unselected.png"] forState:UIControlStateNormal];
+                [btn setImage:[SCFbUtils img_imageWithName:@"sc_mosaic_selected.png"] forState:UIControlStateNormal];
             } else if (i == btnCount - 1) {
                 // earser
-                [btn setImage:[UIImage imageNamed:@"sc_earser.png"] forState:UIControlStateNormal];
+                [btn setImage:[SCFbUtils img_imageWithName:@"sc_earser.png"] forState:UIControlStateNormal];
             }
         }
     }
@@ -189,7 +189,7 @@ static CGFloat const kMaxMosaicSize = 50.0;
 
 - (UIImageView *)hookImgView {
     if (!_hookImgView) {
-        _hookImgView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sc_hook.png"]];
+        _hookImgView = [[UIImageView alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_hook.png"]];
         _hookImgView.frame = CGRectMake(0, 0, 10, 10);
         _hookImgView.contentMode = UIViewContentModeScaleAspectFit;
     }
@@ -222,7 +222,7 @@ static CGFloat const kMaxMosaicSize = 50.0;
                 [btn.layer addSublayer:layer];
                 
             } else {
-                [btn setImage:[UIImage imageNamed:@"sc_close.png"] forState:UIControlStateNormal];
+                [btn setImage:[SCFbUtils img_imageWithName:@"sc_close.png"] forState:UIControlStateNormal];
             }
         }
     }
@@ -238,13 +238,13 @@ static CGFloat const kMaxMosaicSize = 50.0;
 
 - (void)setupCloseBtn {
     if (self.navigationController) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
         self.navigationItem.leftBarButtonItem = item;
         return;
     }
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, topViewHeight);
-    [btn setImage:[UIImage imageNamed:@"sc_close.png"] forState:UIControlStateNormal];
+    [btn setImage:[SCFbUtils img_imageWithName:@"sc_close.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(closeBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:btn];
 }
@@ -257,13 +257,13 @@ static CGFloat const kMaxMosaicSize = 50.0;
 
 - (void)setupNextBtn {
     if (self.navigationController) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_arrow.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed:)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_arrow.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed:)];
         self.navigationItem.rightBarButtonItem = item;
         return;
     }
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(self.view.frame.size.width - 40, 0, 40, topViewHeight);
-    [btn setImage:[UIImage imageNamed:@"sc_arrow.png"] forState:UIControlStateNormal];
+    [btn setImage:[SCFbUtils img_imageWithName:@"sc_arrow.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(nextBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:btn];
 }

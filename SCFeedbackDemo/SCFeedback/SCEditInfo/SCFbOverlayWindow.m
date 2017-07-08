@@ -9,6 +9,7 @@
 #import "SCFbOverlayWindow.h"
 #import "SCFbUtils.h"
 #import "SCFbUtils+VCAndView.h"
+#import "SCFbUtils+sc_image.h"
 #import "SCFeedbackManager.h"
 #import "SCEditInfoViewController.h"
 
@@ -111,8 +112,8 @@
     }
     _type = type;
     NSString *imgName = (_type == SCFbOverlayTypeCapture ? @"sc_camera_overlay.png" : @"sc_recorder_overlay.png");
-    [self.overlayBtn setImage:[UIImage imageNamed:imgName] forState:UIControlStateNormal];
-    [self.overlayBtn setImage:(_type == SCFbOverlayTypeRecorder ? [UIImage imageNamed:@"sc_stop_record.png"] : nil) forState:UIControlStateSelected];
+    [self.overlayBtn setImage:[SCFbUtils img_imageWithName:imgName] forState:UIControlStateNormal];
+    [self.overlayBtn setImage:(_type == SCFbOverlayTypeRecorder ? [SCFbUtils img_imageWithName:@"sc_stop_record.png"] : nil) forState:UIControlStateSelected];
 }
 
 #pragma mark - private methods

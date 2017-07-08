@@ -10,6 +10,7 @@
 #import "SCFbMediaView.h"
 #import "SCDrawerViewController.h"
 #import "SCFbUtils.h"
+#import "SCFbUtils+sc_image.h"
 #import "SCTextView.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
@@ -311,7 +312,7 @@ static NSInteger const kTagToolBtn =1200;
             btn.tag = kTagToolBtn + i;
             btn.frame = CGRectMake(10 + kbToolViewHeight * i, 0, kbToolViewHeight, kbToolViewHeight);
             NSString *picStr = (i == 0 ? @"sc_recorder_unselected.png" : (i == 1 ? @"sc_camera_unselected.png" : (i == 2 ? @"sc_picture_unselected.png" : @"")));
-            [btn setImage:[UIImage imageNamed:picStr] forState:UIControlStateNormal];
+            [btn setImage:[SCFbUtils img_imageWithName:picStr] forState:UIControlStateNormal];
             [btn addTarget:self action:@selector(toolBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
             [_kbToolView addSubview:btn];
         }
@@ -375,13 +376,13 @@ static NSInteger const kTagToolBtn =1200;
 
 - (void)setupCloseBtn {
     if (self.navigationController) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
         self.navigationItem.leftBarButtonItem = item;
         return;
     }
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(0, 0, 40, topViewHeight);
-    [btn setImage:[UIImage imageNamed:@"sc_close.png"] forState:UIControlStateNormal];
+    [btn setImage:[SCFbUtils img_imageWithName:@"sc_close.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(closeBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:btn];
 }
@@ -397,13 +398,13 @@ static NSInteger const kTagToolBtn =1200;
 
 - (void)setupNextBtn {
     if (self.navigationController) {
-        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_send.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed:)];
+        UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_send.png"] style:UIBarButtonItemStylePlain target:self action:@selector(nextBtnPressed:)];
         self.navigationItem.rightBarButtonItem = item;
         return;
     }
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(self.view.frame.size.width - 40, 0, 40, topViewHeight);
-    [btn setImage:[UIImage imageNamed:@"sc_send.png"] forState:UIControlStateNormal];
+    [btn setImage:[SCFbUtils img_imageWithName:@"sc_send.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(nextBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.topView addSubview:btn];
 }

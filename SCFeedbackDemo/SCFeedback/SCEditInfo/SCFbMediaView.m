@@ -8,6 +8,7 @@
 
 #import "SCFbMediaView.h"
 #import "SCFbUtils.h"
+#import "SCFbUtils+sc_image.h"
 
 static CGFloat const padding = 5;
 
@@ -81,7 +82,7 @@ static CGFloat const padding = 5;
     btn.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.2];
     [btn addTarget:self action:@selector(coverBtnBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     if (_info && _info.type == SCFbMediaTypeVideo) {
-        [btn setImage:[UIImage imageNamed:@"sc_play_btn.png"] forState:UIControlStateNormal];
+        [btn setImage:[SCFbUtils img_imageWithName:@"sc_play_btn.png"] forState:UIControlStateNormal];
     }
     [self addSubview:btn];
 }
@@ -95,7 +96,7 @@ static CGFloat const padding = 5;
 - (void)addDeleteBtn {
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(CGRectGetWidth(self.frame) - 20, 0, 20, 20);
-    [btn setImage:[UIImage imageNamed:@"sc_right_delete.png"] forState:UIControlStateNormal];
+    [btn setImage:[SCFbUtils img_imageWithName:@"sc_right_delete.png"] forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(deleteBtnPressed:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:btn];
 }

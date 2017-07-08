@@ -8,6 +8,7 @@
 
 #import "SCFileListViewController.h"
 #import "SCFbUtils+sc_file.h"
+#import "SCFbUtils+sc_image.h"
 #import <MediaPlayer/MediaPlayer.h>
 #import "SCFeedbackManager.h"
 
@@ -56,7 +57,7 @@
 
 #pragma mark - views
 - (void)setupCloseBtn {
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
     self.navigationItem.leftBarButtonItem = item;
 }
 

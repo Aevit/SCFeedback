@@ -45,4 +45,13 @@
  */
 + (UIImage*)img_imageWithColor:(UIColor*)color size:(CGSize)imageSize;
 
+
+/**
+ get UIImage from SCFeedback_resources.bundle
+
+ @param name the image name
+ @return UIImage
+ */
++ (UIImage *)img_imageWithName:(NSString*)name;
+
 @end

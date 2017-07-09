@@ -38,10 +38,10 @@
     
     self.navigationItem.title = @"Files";
     
-    [self setupCloseBtn];
-    
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"edit" style:UIBarButtonItemStylePlain target:self action:@selector(editBtnPressed:)];
     self.navigationItem.rightBarButtonItem = rightItem;
+    
+    [self resetNavi];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,10 +55,32 @@
     }
 }
 
-#pragma mark - views
+#pragma mark - Orientation
+- (BOOL)shouldAutorotate {
+    return NO;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    return UIInterfaceOrientationPortrait;
+}
+
+#pragma mark - private methods
 - (void)setupCloseBtn {
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithImage:[SCFbUtils img_imageWithName:@"sc_close.png"] style:UIBarButtonItemStylePlain target:self action:@selector(closeBtnPressed:)];
     self.navigationItem.leftBarButtonItem = item;
+}
+
+- (void)resetNavi {
+    if (self.navigationController && self.navigationController.viewControllers.count <= 1) {
+        [self setupCloseBtn];
+    } else {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+    self.navigationItem.rightBarButtonItem.title = @"edit";
 }
 
 #pragma mark - actions
@@ -123,15 +145,13 @@
         self.navigationItem.leftBarButtonItem = leftItem;
         self.navigationItem.rightBarButtonItem.title = @"cancel";
     } else {
-        self.navigationItem.leftBarButtonItem = nil;
-        self.navigationItem.rightBarButtonItem.title = @"edit";
+        [self resetNavi];
     }
 }
 
 - (void)deleteBtnPressed:(id)sender {
     
-    self.navigationItem.leftBarButtonItem = nil;
-    self.navigationItem.rightBarButtonItem.title = @"edit";
+    [self resetNavi];
     
     NSMutableArray *files = [NSMutableArray array];
     for (NSIndexPath *indexPath in self.tableView.indexPathsForSelectedRows) {

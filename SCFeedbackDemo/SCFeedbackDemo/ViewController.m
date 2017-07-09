@@ -221,9 +221,6 @@ static NSString *cellInfoKeySel = @"cellInfoKeySel";
 //    NSString *filePath = [NSString stringWithFormat:@"%@/%@", folder, fileName];
 //    recorder.outputURL = [NSURL fileURLWithPath:filePath];
     
-    // custom size
-//    recorder.size = CGSizeMake(100, 200);
-    
     // touch point
     recorder.showTouchPoint = YES;
     

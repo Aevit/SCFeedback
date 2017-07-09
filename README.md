@@ -109,7 +109,18 @@ There is a protocol to get the video file url and cover image when finish record
 - (void)scFeedback:(SCFeedbackManager *)manager didSaveRecordingVideoUrl:(NSURL *)fileUrl coverImage:(UIImage *)coverImage {
     
 }
+```
 
+It will record audio while recording screen, if you don't want to include audio, use this property:  
+
+```
+[SCFeedbackManager sharedManager].screenRecorder.includeAudio = NO;
+```
+
+If you don't want to show the red `touchPointer`:  
+
+```
+[SCFeedbackManager sharedManager].screenRecorder.showTouchPoint = NO;
 ```
 
 ##### audio

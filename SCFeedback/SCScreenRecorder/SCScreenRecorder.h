@@ -37,7 +37,7 @@ extern NSString *const kNotificationDidReachMaxTime_scfb;
 @property (nonatomic, assign) BOOL showTouchPoint;
 
 /**
- whether to record audio, default is NO;
+ whether to record audio, default is YES;
  */
 @property (nonatomic, assign) BOOL includeAudio;
 

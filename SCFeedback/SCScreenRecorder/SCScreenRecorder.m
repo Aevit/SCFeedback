@@ -43,7 +43,7 @@ NSString *const kNotificationDidReachMaxTime_scfb = @"kNotificationDidReachMaxTi
         _frameRate = 10;
         _showTouchPoint = YES;
         _isTimerSuspend = NO;
-        _includeAudio = NO;
+        _includeAudio = YES;
         _maxTime = 60 * NSEC_PER_SEC;
     }
     return self;

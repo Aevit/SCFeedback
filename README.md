@@ -1,9 +1,9 @@
 ## SCFeedback
 
-[![Build Status](https://travis-ci.org/Aevit/SCFeedback.svg?branch=master)](https://travis-ci.org/SCFeedback/SCFeedback)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SCFeedback.svg?style=flat)](https://img.shields.io/cocoapods/v/SCFeedback.svg)
+[![Build Status](https://travis-ci.org/Aevit/SCFeedback.svg?branch=master)](https://travis-ci.org/Aevit/SCFeedback)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SCFeedback.svg?style=flat)](https://github.com/Aevit/SCFeedback)
 [![Platform](https://img.shields.io/cocoapods/p/SCFeedback.svg?style=flat)](http://cocoadocs.org/docsets/SCFeedback)
-[![Language](https://img.shields.io/badge/language-ObjectiveC-orange.svg)]()
+[![Language](https://img.shields.io/badge/language-ObjectiveC-orange.svg)](http://cocoadocs.org/docsets/SCFeedback)
 [![LICENSE](https://img.shields.io/cocoapods/l/SCFeedback.svg?style=flat)](https://raw.githubusercontent.com/Aevit/SCFeedback/master/LICENSE)
 
 In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/))  
@@ -56,6 +56,7 @@ In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/)
 
 [[SCFeedbackManager sharedManager] setupSendInfoBlock:^(UIViewController *editInfoController, NSArray<SCFbMediaInfo *> *dataArray, NSString *text) {
 	// Hey, do something here, such as to compress the images and upload the data
+	[editInfoController dismissViewControllerAnimated:YES completion:nil];
 }];
 ```
 

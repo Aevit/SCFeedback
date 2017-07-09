@@ -87,11 +87,11 @@ static NSString *cellInfoKeySel = @"cellInfoKeySel";
 
 - (void)startRecord:(UIBarButtonItem*)sender {
 
-    self.isRecording = !self.isRecording;
+//    self.isRecording = !self.isRecording;
     
-    [sender setTitle:(self.isRecording ? @"stop record" : @"start record")];
+    [sender setTitle:(!self.isRecording ? @"stop record" : @"start record")];
     
-    if (self.isRecording) {
+    if (!self.isRecording) {
         [self startRecording:nil];
     } else {
         [self stopRecording:nil];

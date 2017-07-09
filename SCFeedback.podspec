@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SCFeedback"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "In-App Feedback for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
   #s.description  = <<-DESC
   #                 DESC
 
-  s.homepage     = "https://github.com/Aevit/SCFeedbackDemo"
+  s.homepage     = "https://github.com/Aevit/SCFeedback"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Aevit/SCFeedbackDemo.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Aevit/SCFeedback.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "SCFeedbackDemo/SCFeedback/**/*.{h,m}"
+  s.source_files  = "SCFeedback/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Classes/**/*.h"
@@ -105,7 +105,7 @@ Pod::Spec.new do |s|
   #
 
   # s.resource  = "icon.png"
-  s.resources = "SCFeedbackDemo/SCFeedback/resources/___SCFeedback.bundle"
+  s.resources = "SCFeedback/resources/___SCFeedback.bundle"
 
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"

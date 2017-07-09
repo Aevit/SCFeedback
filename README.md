@@ -1,5 +1,11 @@
 ## SCFeedback
 
+[![Build Status](https://travis-ci.org/SCFeedback/SCFeedback.svg?branch=master)](https://travis-ci.org/SCFeedback/SCFeedback)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SCFeedback.svg?style=flat)](https://img.shields.io/cocoapods/v/SCFeedback.svg)
+[![Platform](https://img.shields.io/cocoapods/p/SCFeedback.svg?style=flat)](http://cocoadocs.org/docsets/SCFeedback)
+[![Language](https://img.shields.io/badge/language-ObjectiveC-orange.svg)]()
+[![LICENSE](https://img.shields.io/cocoapods/l/SCFeedback.svg?style=flat)](https://raw.githubusercontent.com/Aevit/SCFeedback/master/LICENSE)
+
 In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/))  
 
 * in-app recording video  
@@ -9,12 +15,12 @@ In-App Feedback for iOS (simplified version of [Instabug](https://instabug.com/)
 ## Demo
 [Demo Video](http://aevit.qiniudn.com/scfeedback_demo.mp4)
 
-[or download the video (1.7MB)](https://raw.githubusercontent.com/Aevit/SCFeedbackDemo/master/demo.mp4)
+[or download the video (1.7MB)](https://raw.githubusercontent.com/Aevit/SCFeedback/master/demo.mp4)
 
 
 ## Requirements
 * iOS 7.0 or later  
-* Xcode 7.0 or later  
+* Xcode 8.0 or later  
 
 
 ## Installation
@@ -71,7 +77,7 @@ NSURL *fileUrl = [info videoFileUrl];
 
 ### Customize
 
-You can customize something with the properties and apis in the file [`SCFeedbackManager.h`](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCFeedbackManager.h) ---- just scroll down the file and you will see something more :)  
+You can customize something with the properties and apis in the file [`SCFeedbackManager.h`](https://github.com/Aevit/SCFeedback/blob/master/SCFeedback/SCFeedbackManager.h) ---- just scroll down the file and you will see something more :)  
 
 #### show the edit info controller
 You can show the edit info controller without nothing:  
@@ -92,7 +98,7 @@ When you shake your device, will show a alert, if you want to disable the alert,
 ##### video
 You can do something customize (set the frameRate of the video, set the outputURL of the video and so on) with the properties and apis of `[SCFeedbackManager sharedManager].screenRecorder`:  
 
-[SCScreenRecorder.h](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCScreenRecorder/SCScreenRecorder.h)
+[SCScreenRecorder.h](https://github.com/Aevit/SCFeedback/blob/master/SCFeedback/SCScreenRecorder/SCScreenRecorder.h)
 
 There is a protocol to get the video file url and cover image when finish recording video:  
 
@@ -109,7 +115,7 @@ There is a protocol to get the video file url and cover image when finish record
 
 You can do something customize with the properties and apis of `[SCFeedbackManager sharedManager].audioManager`:  
 
-[SCAudioManager.h](https://github.com/Aevit/SCFeedbackDemo/blob/master/SCFeedbackDemo/SCFeedback/SCAudioManager/SCAudioManager.h)
+[SCAudioManager.h](https://github.com/Aevit/SCFeedback/blob/master/SCFeedback/SCAudioManager/SCAudioManager.h)
 
 
 #### capture screeen
@@ -129,7 +135,7 @@ If you want to customize your next step when pressing the button at the top-righ
 ```
 
 #### text
-You can change the text of the alert and the placaholder of textview just like this:  
+You can change the text of the alert and the placeholder of textview just like this:  
 
 ```
 [SCFeedbackManager sharedManager].customInfo[scInfo_drawer_title] = @"Drawer title";

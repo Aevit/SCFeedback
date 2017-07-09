@@ -1,6 +1,6 @@
 ## SCFeedback
 
-[![Build Status](https://travis-ci.org/SCFeedback/SCFeedback.svg?branch=master)](https://travis-ci.org/SCFeedback/SCFeedback)
+[![Build Status](https://travis-ci.org/Aevit/SCFeedback.svg?branch=master)](https://travis-ci.org/SCFeedback/SCFeedback)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/SCFeedback.svg?style=flat)](https://img.shields.io/cocoapods/v/SCFeedback.svg)
 [![Platform](https://img.shields.io/cocoapods/p/SCFeedback.svg?style=flat)](http://cocoadocs.org/docsets/SCFeedback)
 [![Language](https://img.shields.io/badge/language-ObjectiveC-orange.svg)]()

@@ -8,6 +8,17 @@
 
 #import "SCFbUtils+sc_image.h"
 
+// Returns YES if |view| or any view it contains is a WKWebView.
+BOOL ViewHierarchyContainsWKWebView(UIView* view) {
+    if ([view isKindOfClass:NSClassFromString(@"WKWebView")])
+        return YES;
+    for (UIView* subview in view.subviews) {
+        if (ViewHierarchyContainsWKWebView(subview))
+            return YES;
+    }
+    return NO;
+}
+
 @implementation SCFbUtils (sc_image)
 
 /**
@@ -20,7 +31,20 @@
  */
 + (UIImage*)img_snapshotForView:(UIView*)view inRect:(CGRect)rect afterScreenUpdates:(BOOL)afterScreenUpdates {
     UIGraphicsBeginImageContextWithOptions(rect.size, view.opaque, [[UIScreen mainScreen] scale]);
-    if ([view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
+    
+    // TODO: sc todo. NOT use drawViewHierarchyInRect:afterScreenUpdates:
+    // firstly, this method will cause high cpu in iOS 11 (it works in iOS 10).
+    // secondly, there is a bug I learned from the source of chrominum:
+    // https://chromium.googlesource.com/chromium/src.git/+/master/ios/chrome/browser/snapshots/snapshot_generator.mm
+    // TODO(crbug.com/636188): -drawViewHierarchyInRect:afterScreenUpdates: is
+    // buggy on iOS 8/9/10 (and state is unknown for iOS 11) causing GPU glitches,
+    // screen redraws during animations, broken pinch to dismiss on tablet, etc.
+    // For the moment, only use it for WKWebView with depends on it. Remove this
+    // check and always use -drawViewHierarchyInRect:afterScreenUpdates: once it
+    // is working correctly in all version of iOS supported.
+    BOOL useDrawViewHierarchy = ViewHierarchyContainsWKWebView(view);
+    
+    if (useDrawViewHierarchy && [view respondsToSelector:@selector(drawViewHierarchyInRect:afterScreenUpdates:)]) {
         [view drawViewHierarchyInRect:rect afterScreenUpdates:afterScreenUpdates];
     } else {
         [view.layer renderInContext:UIGraphicsGetCurrentContext()];

@@ -110,7 +110,7 @@ NSString *const kNotificationDidReachMaxTime_scfb = @"kNotificationDidReachMaxTi
                     self.coverImage = image;
                 }
 //#ifdef DEBUG
-//                [weakSelf saveImageForDebug:image];
+//                [self saveImageForDebug:image];
 //#endif
                 [self.writer writeToVideoWithImage:image];
             }
